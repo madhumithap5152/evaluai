@@ -1,0 +1,34 @@
+@startuml
+allowmixing
+skinparam monochrome true
+skinparam rectangle {
+    BackgroundColor white
+    BorderColor black
+    RoundCorner 15
+}
+
+actor "User" as user
+actor "Admin" as admin
+
+rectangle "0.1\nManage User Accounts" as manageUsers
+rectangle "0.2\nGenerate Tests" as generateTests
+rectangle "0.3\nEvaluate Answers" as evaluateAnswers
+rectangle "0.4\nResults Management" as manageResults
+rectangle "0.5\nSystem Management" as systemManagement
+
+user -down-> manageUsers : 1. Submit Registration / Login
+manageUsers -up-> user : 2. Confirm Registration / Login
+
+user -right-> generateTests : 3. Request Test
+generateTests -left-> user : 4. Display Test
+
+user -down-> evaluateAnswers : 5. Submit Answers
+evaluateAnswers -up-> user : 6. Display Evaluation
+
+evaluateAnswers -right-> manageResults : 7. Store Evaluation
+manageResults -left-> user : 8. View Results
+
+admin -down-> systemManagement : 9. Manage System Settings
+systemManagement -up-> admin : 10. Provide System Reports
+
+@enduml

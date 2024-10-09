@@ -1,0 +1,44 @@
+@startuml seq
+skinparam backgroundColor #EEEBDC
+skinparam sequenceArrowThickness 2
+skinparam sequenceParticipantPadding 20
+skinparam sequenceMessageAlign center
+skinparam roundCorner 20
+skinparam participant {
+    BackgroundColor<< User >> LightBlue
+    FontColor<< User >> DarkBlue
+}
+
+title "EvaluAI Sequence Diagram"
+
+actor User << User >>
+
+User -> System: Login
+System --> User: Request credentials
+User -> System: Submit credentials
+System --> User: Display available tests
+
+User -> System: Select test
+System -> SubjectiveTest: Initialize SubjectiveTest with filepath
+SubjectiveTest -> System: Load corpus data from file
+
+SubjectiveTest -> SubjectiveTest: Tokenize corpus into sentences
+SubjectiveTest -> SubjectiveTest: Tokenize sentences into words
+SubjectiveTest -> SubjectiveTest: Tag parts of speech
+SubjectiveTest -> SubjectiveTest: Parse sentences to find chunks
+
+SubjectiveTest -> System: Generate test based on corpus
+System --> User: Display generated test
+
+User -> System: Submit answers
+System -> SubjectiveTest: Evaluate answers
+
+SubjectiveTest -> SubjectiveTest: Tokenize user answers
+SubjectiveTest -> SubjectiveTest: Compare original and user answers using cosine similarity
+SubjectiveTest -> System: Return evaluation score
+
+System -> TestResult: Save results
+TestResult --> System: Confirm result saved
+System --> User: Display test results
+
+@enduml

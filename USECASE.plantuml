@@ -1,0 +1,22 @@
+@startuml
+actor "User" as user
+actor "Admin" as admin
+
+usecase "Register / Login" as UC1
+usecase "Generate Test" as UC2
+usecase "Submit Answers" as UC3
+usecase "View Results" as UC4
+usecase "Manage Questions" as UC5
+usecase "Manage Users" as UC6
+usecase "Generate Reports" as UC7
+
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+
+admin --> UC5
+admin --> UC6
+admin --> UC7
+
+@enduml

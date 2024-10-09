@@ -6,4 +6,102 @@ Arthur Samuel, an American pioneer in the field of computer gaming and artificia
 A core objective of a learner is to generalize from its experience. The computational analysis of machine learning algorithms and their performance is a branch of theoretical computer science known as computational learning theory. Because training sets are finite and the future is uncertain, learning theory usually does not yield guarantees of the performance of algorithms. Instead, probabilistic bounds on the performance are quite common. 
 Machine learning and statistics are closely related fields. According to Michael I. Jordan, the ideas of machine learning, from methodological principles to theoretical tools, have had a long pre-history in statistics. He also suggested the term data science as a placeholder to call the overall field. 
 An artificial neural network learning algorithm, usually called "neural network", is a learning algorithm that is vaguely inspired by biological neural networks. Computations are structured in terms of an interconnected group of artificial neurons, processing information using a connectionist approach to computation. Modern neural networks are non-linear statistical data modeling tools. 
-Inductive logic programming (ILP) is an approach to rule learning using logic programming as a uniform representation for input examples, background knowledge, and hypotheses. Given an encoding of the known background knowledge and a set of examples represented as a logical database of facts, an ILP system will derive a hypothesized logic program that entails all positive and no negative examples. Cluster analysis is the assignment of a set of observations into subsets (called clusters) so that observations within the same cluster are similar according to some predesignated criterion or criteria, while observations drawn from different clusters are dissimilar. Different clustering techniques make different assumptions on the structure of the data, often defined by some similarity metric and evaluated for example by internal compactness (similarity between members of the same cluster) and separation between different clusters. Other methods are based on estimated density and graph connectivity. Clustering is a method of unsupervised learning, and a common technique for statistical data analysis.
+Supervised Learning: A type of machine learning where the model is trained on labeled data, meaning the input comes with corresponding correct outputs.
+
+Unsupervised Learning: Involves training a model on data without labeled responses, focusing on identifying patterns or clusters in the data.
+
+Reinforcement Learning: A learning paradigm where an agent learns to make decisions by taking actions in an environment to maximize cumulative reward.
+
+Overfitting: Occurs when a model learns not only the underlying pattern but also the noise in the training data, resulting in poor performance on new data.
+
+Underfitting: Happens when a model is too simple to capture the underlying pattern in the data, leading to poor performance on both training and new data.
+
+Cross-validation: A technique for assessing how well a model generalizes to an independent dataset by dividing the data into training and testing subsets multiple times.
+
+Regularization: A method used to prevent overfitting by adding a penalty to the model for complexity, often applied in linear and logistic regression.
+
+Feature Engineering: The process of selecting, modifying, and creating new input features to improve the performance of machine learning models.
+
+Dimensionality Reduction: Techniques like PCA (Principal Component Analysis) reduce the number of input variables to simplify models and reduce computational cost.
+
+Hyperparameter Tuning: The process of finding the best set of parameters for a machine learning model to optimize its performance.
+
+Gradient Descent: An optimization algorithm used to minimize the loss function in training machine learning models by iteratively adjusting parameters.
+
+Stochastic Gradient Descent (SGD): A variant of gradient descent that updates parameters for each training example, often used in online learning.
+
+Batch Gradient Descent: Involves calculating the gradient of the loss function for the entire dataset before updating the parameters.
+
+Mini-Batch Gradient Descent: Combines aspects of both SGD and batch gradient descent by updating parameters based on small subsets of the data.
+
+Loss Function: A mathematical function that measures the difference between the model's predictions and the actual outcomes.
+
+Activation Function: A function applied to the output of a neural network layer, introducing non-linearity into the model (e.g., ReLU, sigmoid, tanh).
+
+Backpropagation: The process of propagating the loss gradient backward through the network to update the weights during training.
+
+Convolutional Neural Networks (CNNs): A class of deep neural networks primarily used for processing structured grid data like images.
+
+Recurrent Neural Networks (RNNs): A type of neural network designed for sequential data processing, where the output from previous steps is fed back into the model.
+
+Long Short-Term Memory (LSTM): A type of RNN architecture that addresses the vanishing gradient problem, making it effective for long-term dependencies.
+
+Generative Adversarial Networks (GANs): A class of machine learning frameworks where two models, a generator and a discriminator, are trained simultaneously to create realistic data samples.
+
+Autoencoders: Neural networks used for unsupervised learning that encode input data into a compressed representation and then decode it back to reconstruct the original data.
+
+Support Vector Machines (SVM): A supervised learning algorithm used for classification and regression, which finds the optimal hyperplane to separate different classes.
+
+Decision Trees: A model that splits data into branches based on feature values, used for both classification and regression tasks.
+
+Random Forests: An ensemble learning method that combines multiple decision trees to improve accuracy and control overfitting.
+
+Boosting: An ensemble technique where weak learners are combined sequentially to form a strong learner by focusing on previously misclassified examples.
+
+Bagging: Another ensemble method that involves training multiple models on different subsets of the data and averaging their predictions to reduce variance.
+
+Clustering Algorithms: Techniques like K-means, hierarchical clustering, and DBSCAN group similar data points together without predefined labels.
+
+Principal Component Analysis (PCA): A dimensionality reduction technique that identifies the directions (principal components) that maximize variance in the data.
+
+Linear Regression: A basic predictive modeling technique that assumes a linear relationship between the input features and the output variable.
+
+Logistic Regression: Used for binary classification tasks, predicting the probability of an outcome based on input features.
+
+Naive Bayes Classifier: A probabilistic classifier based on Bayes' theorem, assuming independence between features.
+
+K-Nearest Neighbors (KNN): A simple, instance-based learning algorithm that classifies new data points based on the majority label of their closest neighbors.
+
+Ensemble Learning: Combines multiple machine learning models to improve performance, often by averaging or voting.
+
+Bias-Variance Tradeoff: Refers to the balance between the model's bias (error due to incorrect assumptions) and variance (error due to sensitivity to fluctuations in the training data).
+
+Model Interpretability: The extent to which a human can understand the cause of a decision made by a machine learning model.
+
+Transfer Learning: A technique where a pre-trained model on one task is adapted to perform a different but related task, reducing the need for extensive training data.
+
+Deep Learning: A subset of machine learning that uses multi-layered neural networks to model complex patterns in large datasets.
+
+Reinforcement Learning Algorithms: Includes Q-learning, SARSA, and Deep Q-Networks (DQN), each with different approaches to learning optimal policies.
+
+Collaborative Filtering: A technique used in recommendation systems, which predicts user preferences based on the preferences of similar users.
+
+Content-Based Filtering: Another recommendation approach that suggests items based on the features of previously liked items.
+
+Neural Architecture Search (NAS): The process of automating the design of neural network architectures, often using reinforcement learning or evolutionary algorithms.
+
+Feature Selection: The process of selecting the most relevant features for model training, improving model performance and reducing overfitting.
+
+Data Augmentation: A technique used in training machine learning models, particularly in computer vision, where the training dataset is artificially expanded by applying transformations to the images.
+
+Bias in Machine Learning: Refers to the prejudice in data or algorithms that can lead to unfair or unethical outcomes in model predictions.
+
+Explainable AI (XAI): The field focused on making machine learning models transparent and interpretable to humans, ensuring that decisions are understandable.
+
+Federated Learning: A technique where models are trained across decentralized devices or servers without sharing the actual data, enhancing privacy.
+
+Hyperparameter Optimization: The process of tuning the hyperparameters of a machine learning model to improve its performance.
+
+Ethical AI: Refers to the development and deployment of AI systems in ways that are fair, transparent, and aligned with societal values.
+
+Data Imputation: Techniques used to fill in missing data in a dataset, which can improve model accuracy and robustness.

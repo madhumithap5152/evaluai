@@ -1,12 +1,4 @@
-# Copyright 2020 The `Kumar Nityan Suman` (https://github.com/nityansuman/).
-# All Rights Reserved.
-#
-#                     GNU GENERAL PUBLIC LICENSE
-#                        Version 3, 29 June 2007
-#  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-#  Everyone is permitted to copy and distribute verbatim copies
-#  of this license document, but changing it is not allowed.
-# ==============================================================================
+
 
 import logging
 import re
@@ -34,7 +26,7 @@ class ObjectiveTest:
 		except FileNotFoundError:
 			logging.exception("Corpus file not found.", exc_info=True)
 
-	def generate_test(self, num_questions: int = 3) -> Tuple[list, list]:
+	def generate_test(self, num_questions: int = 10) -> Tuple[list, list]:
 		"""Method to generate an objective test.
 
 		Args:
@@ -50,7 +42,7 @@ class ObjectiveTest:
 		# Identify potential question answers
 		question_answers = list()
 		for question_set in question_sets:
-			if question_set["Key"] > 3:
+			if question_set["Key"] > 10:
 				question_answers.append(question_set)
 
 		# Create objective test set

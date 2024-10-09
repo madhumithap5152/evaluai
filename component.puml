@@ -1,0 +1,29 @@
+@startuml compo
+title "EvaluAI Component Diagram"
+
+package "Frontend" {
+    [User Interface]
+}
+
+package "Backend" {
+    [Authentication Service] --> [User Management]
+    [Test Service] --> [Test Management]
+    [Evaluation Service] --> [Test Service]
+    [Result Service] --> [Evaluation Service]
+}
+
+package "Database" {
+    [User Database]
+    [Test Database]
+    [Result Database]
+}
+
+[User Interface] --> [Authentication Service]
+[User Interface] --> [Test Service]
+[User Interface] --> [Result Service]
+
+[Authentication Service] --> [User Database]
+[Test Service] --> [Test Database]
+[Result Service] --> [Result Database]
+
+@enduml

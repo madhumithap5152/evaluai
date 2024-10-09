@@ -1,2 +1,99 @@
-Testing is the process of evaluating a system or its componen with the intent to find whether it satisfies the specified requirements or not. Testing is executing a system in order to identify any gaps, errors, or missing requirements in contrary to the actual requirements. Testing is the process of evaluating a system or its component(s) with the intent to find whether it satisfies the specified requirements or not. In simple words, testing is executing a system in order to identify any gaps, errors, or missing requirements in contrary to the actual requirements.
-According to ANSI/IEEE 1059 standard, Testing can be defined as the process of analyzing a software item to detect the differences between existing and required conditions and to evaluate the features of the software item. In the IT industry, large companies have a team with responsibilities to evaluate the developed software in context of the given requirements. Moreover, developers also conduct testing which is called Unit Testing. Manual testing includes testing a software manually, i.e., without using any automated tool or any script. In this type, the tester takes over the role of an end-user and tests the software to identify any unexpected behavior or bug. There are different stages for manual testing such as unit testing, integration testing, system testing, and user acceptance testing. Testers use test plans, test cases, or test scenarios to test a software to ensure the completeness of testing. Manual testing also includes exploratory testing, as testers explore the software to identify errors in it. Automation testing, which is also known as Test Automation, is when the tester writes scripts and uses another software to test the product. This process involves automation of a manual process. Automation Testing is used to re-run the test scenarios that were performed manually, quickly, and repeatedly. The technique of testing without having any knowledge of the interior workings of the application is called black-box testing. The tester is oblivious to the system architecture and does not have access to the source code. Typically, while performing a black-box test, a tester will interact with the system's user interface by providing inputs and examining outputs without knowing how and where the inputs are worked upon. White-box testing is the detailed investigation of internal logic and structure of the code. White-box testing is also called glass testing or open-box testing. In order to perform white-box testing on an application, a tester needs to know the internal workings of the code. The tester needs to have a look inside the source code and find out which unit/chunk of the code is behaving inappropriately. Grey-box testing is a technique to test the application with having a limited knowledge of the internal workings of an application. In software testing, the phrase the more you know, the better carries a lot of weight while testing an application. Software testing is an investigation conducted to provide stakeholders with information about the quality of the software product or service under test.
+Software Engineering: The application of engineering principles to software development in a systematic method.
+
+Software Development Life Cycle (SDLC): A process followed for a software project, including phases like planning, analysis, design, implementation, testing, and maintenance.
+
+Requirements Engineering: Involves gathering, analyzing, and documenting user requirements.
+
+System Design: The phase where the architecture of the software system is designed.
+
+Modularization: Dividing a software system into smaller, manageable modules.
+
+Design Patterns: Reusable solutions to common problems in software design, such as Singleton, Observer, and Factory patterns.
+
+Object-Oriented Design (OOD): Focuses on designing software using objects and classes.
+
+Agile Methodology: An iterative approach to software development, emphasizing flexibility and customer satisfaction.
+
+Waterfall Model: A linear sequential software development model, where each phase must be completed before the next begins.
+
+Scrum: A framework within Agile methodology, focusing on time-boxed iterations called sprints.
+
+Extreme Programming (XP): An Agile method that emphasizes customer satisfaction, continuous feedback, and small releases.
+
+Test-Driven Development (TDD): A development technique where tests are written before writing the corresponding code.
+
+Version Control Systems (VCS): Tools like Git that manage changes to source code over time.
+
+Continuous Integration (CI): A practice where developers frequently integrate code into a shared repository, minimizing integration problems.
+
+Continuous Deployment (CD): An extension of CI, where code changes are automatically deployed to production after passing tests.
+
+Code Review: A process where developers examine code for errors and improvements before it is merged into the main branch.
+
+Unit Testing: Testing individual components of software to ensure they work as expected.
+
+Integration Testing: Testing the interaction between integrated units to identify interface defects.
+
+System Testing: Testing the entire system as a whole to ensure it meets the requirements.
+
+Acceptance Testing: Validation by the end-user to ensure the system meets their needs and requirements.
+
+Regression Testing: Testing existing software functionality to ensure new changes haven’t introduced bugs.
+
+Scalability: The capability of a software system to handle increased loads.
+
+Performance Testing: Evaluating the speed, responsiveness, and stability of a software system under a workload.
+
+Usability Testing: Assessing how user-friendly and intuitive a software product is.
+
+Security Testing: Ensuring that the software is free from vulnerabilities and unauthorized access.
+
+Data Structures: Organizing data in a way that enables efficient access and modification.
+
+Algorithms: A step-by-step procedure for solving a problem or performing a task in software.
+
+Software Architecture: The high-level structure of a software system, defining components and their interactions.
+
+Microservices Architecture: A design approach where a system is composed of loosely coupled, independently deployable services.
+
+Monolithic Architecture: A traditional software architecture where the application is a single, unified unit.
+
+API (Application Programming Interface): A set of protocols and tools for building software and allowing different software systems to communicate.
+
+Middleware: Software that connects different applications or services, enabling them to work together.
+
+Software Maintenance: The process of modifying software after delivery to correct faults, improve performance, or adapt to a changed environment.
+
+Refactoring: The process of restructuring existing code without changing its external behavior to improve its readability and maintainability.
+
+Legacy System: An old software system that is still in use but may no longer be supported or efficient.
+
+Software Metrics: Quantitative measures used to assess the quality of software, such as code complexity or defect density.
+
+Configuration Management: The process of handling changes to software and ensuring consistency across versions.
+
+Documentation: Comprehensive information about the design, implementation, and use of software.
+
+Software Prototyping: Creating an incomplete version of the software to explore ideas and gather feedback.
+
+User Interface (UI) Design: Designing the part of software that users interact with directly.
+
+User Experience (UX) Design: Focusing on the overall experience of a user when interacting with the software.
+
+Technical Debt: The implied cost of additional rework caused by choosing an easy solution now instead of a better approach that would take longer.
+
+Automation Testing: Using software tools to execute pre-scripted tests on a software application before it is released into production.
+
+Static Code Analysis: The analysis of computer software that is performed without actually executing programs built from that software.
+
+Deployment Pipeline: The automated process of building, testing, and deploying software.
+
+DevOps: A set of practices that combine software development (Dev) and IT operations (Ops) to shorten the development lifecycle.
+
+Risk Management: Identifying, assessing, and prioritizing risks followed by coordinated application of resources to minimize, control, or mitigate the impact of unfortunate events.
+
+Software Quality Assurance (SQA): A set of activities to ensure that software processes and products conform to requirements and standards.
+
+Code Coverage: A measure used in software testing to describe the degree to which the source code of a program is tested.
+
+Ethics in Software Engineering: The moral principles that guide the conduct of software engineers, including responsibility, integrity, and fairness.

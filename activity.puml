@@ -1,0 +1,21 @@
+@startuml activity
+title "EvaluAI Activity Diagram"
+
+start
+
+:User logs in;
+    :System verifies credentials;
+    if (Credentials valid?) then (yes)
+        :System displays available tests;
+        :User selects a test;
+        :System loads the selected test;
+        :User takes the test;
+        :System evaluates the test answers;
+        :System saves the test results;
+        :User views the test results;
+    else (no)
+        :System displays an error message;
+    endif
+
+stop
+@enduml

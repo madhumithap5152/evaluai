@@ -1,0 +1,26 @@
+@startuml
+allowmixing
+skinparam monochrome true
+skinparam rectangle {
+    BackgroundColor white
+    BorderColor black
+    RoundCorner 15
+}
+skinparam actor {
+    BackgroundColor white
+    BorderColor black
+    FontSize 12
+}
+
+actor "User" as user
+actor "Admin" as admin
+
+circle "0\nEVALUAI SYSTEM" as system
+
+user -down-> system : 1. Submit Test / Answers
+system -up-> user : 2. Display Test Results
+
+admin -right-> system : 3. Manage Test Questions
+system -left-> admin : 4. Provide System Reports
+
+@enduml

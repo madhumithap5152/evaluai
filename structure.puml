@@ -1,0 +1,50 @@
+@startuml classdiag
+title "EvaluAI Project Class Diagram"
+
+package "src" {
+
+    class SubjectiveTest {
+        - summary: str
+        - question_pattern: list
+        - grammar: str
+        __init__(filepath: str)
+        + word_tokenizer(sequence: str): list
+        + create_vector(answer_tokens: list, tokens: list): np.array
+        + cosine_similarity_score(vector1: np.array, vector2: np.array): float
+        + generate_test(num_questions: int = 5): Tuple[list, list]
+        + evaluate_subjective_answer(original_answer: str, user_answer: str): float
+    }
+
+    class User {
+        - user_id: int
+        - username: str
+        - email: str
+        + login(username: str, password: str): bool
+        + logout(): void
+        + takeTest(test: SubjectiveTest): float
+    }
+
+    class TestResult {
+        - result_id: int
+        - user: User
+        - test: SubjectiveTest
+        - score: float
+        + saveResult(): void
+        + getResult(): dict
+    }
+
+    class TestSubjective {
+        + setUp()
+        + tearDown()
+        + test_create_vector()
+        + test_cosine_similarity_score()
+        + test_evaluate_subjective_answer()
+    }
+
+    SubjectiveTest --> TestSubjective : tested by
+    User --> SubjectiveTest : takes
+    TestResult --> User : belongs to
+    TestResult --> SubjectiveTest : for
+}
+
+@enduml
