@@ -1,5 +1,4 @@
 blinker==1.6.2
-certifi @ file:///C:/ci/certifi_1655907258560/work/certifi
 click==8.1.7
 colorama==0.4.6
 Flask==2.3.3

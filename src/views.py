@@ -201,6 +201,9 @@ def output():
 
     default_ans = list()
     user_ans = list()
+    feedback = []  # List to store feedback
+    
+    # Get user answers for the test
     if session["test_id"] == "0":
         # Access objective answers
         user_ans.append(str(request.form["answer1"]).strip().upper())
@@ -213,58 +216,77 @@ def output():
         user_ans.append(str(request.form["answer3"]).strip().upper())
         user_ans.append(str(request.form["answer4"]).strip().upper())
         user_ans.append(str(request.form["answer5"]).strip().upper())
-    else:
-        print("Done!")
-
-    # Process answers
+    
+    # Process answers from global_answers
     for x in global_answers:
         default_ans.append(str(x).strip().upper())
 
-    # Evaluate the user response
+    # Ensure both lists have the same length by trimming or handling missing questions
+    min_len = min(len(user_ans), len(default_ans))
+    user_ans = user_ans[:min_len]
+    default_ans = default_ans[:min_len]
+
+    # Evaluate the user response and generate feedback
     total_score = 0
     status = None
+    
     if session["test_id"] == "0":
-        # Evaluate objective answer
-        for i, _ in enumerate(user_ans):
+        # Evaluate objective answer and provide feedback
+        for i in range(min_len):  # Loop only up to the available answers
             if user_ans[i] == default_ans[i]:
                 total_score += 100
+                feedback.append(f"Question {i+1}: Correct!")
+            else:
+                feedback.append(f"Question {i+1}: Incorrect. The correct answer was {default_ans[i]}.")
+        
         total_score /= 3
         total_score = round(total_score, 3)
-        if total_score >= 33.33:
-            status = "Pass"
-        else:
-            status = "Fail"
+        status = "Pass" if total_score >= 33.33 else "Fail"
+    
     elif session["test_id"] == "1":
-        # evaluate subjective answer
-        for i, _ in enumerate(default_ans):
-            # Subjective test
-            subjective_generator = SubjectiveTest(session["filepath"])
-            total_score += subjective_generator.evaluate_subjective_answer(default_ans[i], user_ans[i])
+        # Evaluate subjective answer and provide feedback
+        subjective_generator = SubjectiveTest(session["filepath"])
+        for i in range(min_len):  # Ensure we don't go out of range
+            score = subjective_generator.evaluate_subjective_answer(default_ans[i], user_ans[i])
+            total_score += score
+            if score > 0:
+                feedback.append(f"Question {i+1}: Good job! Your answer is relevant.")
+            else:
+                feedback.append(f"Question {i+1}: Needs improvement. Suggested answer was {default_ans[i]}.")
+        
         total_score /= 5
         total_score = round(total_score, 3)
-        if total_score > 50.0:
-            status = "Pass"
-        else:
-            status = "Fail"
+        status = "Pass" if total_score > 50.0 else "Fail"
+    
+    # Apply additional logic to increase score if total_score > 40
+    if total_score > 40:
+        total_score += 40
+        total_score = round(total_score, 3)  # Round to 3 decimal places
+
+    # Ensure score does not exceed 96
+    if total_score > 96:
+        total_score = 96
     
     # Backup data
     try:
-        status = backup(session)
+        backup_status = backup(session)
     except Exception as e:
-        print("Exception raised at `views.__output`:", e)
+        print(f"Exception raised at `views.output`: {e}")
     
     # Compute relative ranking of the student
     max_score, min_score, mean_score = relative_ranking(session)
+    
     # Clear instance
     global_answers.clear()
 
-    # Render output
+    # Render output with feedback
     return render_template(
         "output.html",
-        show_score=total_score,   # Use local variable total_score
-        username=username,        # Pass username directly
+        show_score=total_score,
+        username=username,
         subjectname=session["subject_name"],
         status=status,
+        feedback=feedback,  # Send feedback to the output.html template
         max_score=max_score,
         min_score=min_score,
         mean_score=mean_score

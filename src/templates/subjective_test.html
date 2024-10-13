@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
 	<title>{{testname}} | {{topicname}}</title>
 	<meta charset="UTF-8">
@@ -6,19 +7,357 @@
 	<link rel="stylesheet" type="text/css" href="../static/form-static/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../static/form-static/css/main.css">
 	<link rel="stylesheet" href="../static/css/style.css">
+	<style>
+		/* Modal Styling */
+		/* General Styling */
+body {
+    background-color: #f4f4f9; /* Light gray background for a professional feel */
+    font-family: Arial, sans-serif; /* Use a clean, modern font */
+    color: #333; /* Dark text color for better readability */
+}
+
+/* Heading and User Info */
+h5 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #444; /* Slightly lighter for the header */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Test Header */
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #007BFF; /* Blue color for the header to match the test theme */
+    font-weight: bold;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Lucida Console, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Form Styling */
+.contact1new {
+    margin: 40px auto;
+    padding: 20px;
+    width: 55%; /* Narrower form */
+	height:100%;
+    background-color: 	white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for form */
+}
+
+/* Form Input Fields */
+.wrap-input1 {
+    margin-bottom: 15px;
+}
+
+.input1 {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc; /* Subtle border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fafafa; /* Slightly lighter background */
+    transition: border-color 0.3s;
+}
+
+.input1:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none;
+}
+
+/* Submit Button */
+.contact1-form-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.contact1-form-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.modal-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-body {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-button:hover {
+    background-color: #0056b3;
+}
+
+/* Video Container */
+#proctoring-video {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+/* Warning Message */
+.warning-message {
+    color: #f44336;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Page Styling for Notifications */
+.notification-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.notification-modal .modal-content {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    max-width: 400px;
+}
+
+.notification-modal .modal-body {
+    color: #333;
+    font-size: 16px;
+}
+
+/* Modal Button for Notifications */
+.notification-modal .modal-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.notification-modal .modal-button:hover {
+    background-color: #0056b3;
+}
+
+
+	</style>
+
+	<script>
+		// Function to show modal notification
+		function showModal(message) {
+			const modal = document.getElementById("notification-modal");
+			const modalBody = document.getElementById("modal-body");
+			modalBody.innerHTML = message;
+			modal.style.display = "flex";
+		}
+
+		// Function to close modal notification
+		function closeModal() {
+			document.getElementById("notification-modal").style.display = "none";
+		}
+
+		let audioContext;
+		let microphone;
+		let analyser;
+		let soundThreshold = 0.1; // Adjust this threshold as needed
+		let soundWarningShown = false;
+
+		// Function to request camera and microphone access
+		function requestProctoringAccess() {
+			showModal("You are being proctored. Your camera and microphone will be used.");
+			// Access the camera and microphone
+			navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+				.then(function (stream) {
+					const video = document.querySelector('video');
+					if (video) {
+						video.srcObject = stream;
+					}
+					setupAudio(stream); // Set up microphone audio processing
+					console.log('Proctoring is active. Camera and microphone are on.');
+				})
+				.catch(function (error) {
+					console.error("Error accessing camera and microphone:", error);
+					showModal("Please allow camera and microphone access to continue the test.");
+				});
+		}
+
+		// Function to set up microphone audio processing
+		function setupAudio(stream) {
+			audioContext = new (window.AudioContext || window.webkitAudioContext)();
+			microphone = audioContext.createMediaStreamSource(stream);
+			analyser = audioContext.createAnalyser();
+			analyser.fftSize = 256;
+			const bufferLength = analyser.frequencyBinCount;
+			const dataArray = new Uint8Array(bufferLength);
+
+			microphone.connect(analyser);
+
+			function checkSound() {
+				analyser.getByteFrequencyData(dataArray);
+				const sum = dataArray.reduce((a, b) => a + b, 0);
+				const average = sum / bufferLength;
+
+				if (average > soundThreshold * 255 && !soundWarningShown) {
+					soundWarningShown = true;
+					showModal("Attention: This is your final reminder. Any further disruptions may result in disqualification. Please maintain silence.");
+					setTimeout(() => {
+						soundWarningShown = false;
+					}, 30000);
+				}
+				requestAnimationFrame(checkSound);
+			}
+			checkSound();
+		}
+
+		// Function to enable fullscreen mode
+		function openFullscreen() {
+			const elem = document.documentElement; // Fullscreen the whole document
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if (elem.mozRequestFullScreen) { // Firefox
+				elem.mozRequestFullScreen();
+			} else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
+				elem.webkitRequestFullscreen();
+			} else if (elem.msRequestFullscreen) { // IE/Edge
+				elem.msRequestFullscreen();
+			}
+		}
+
+		// Detect if the user exits fullscreen and put them back into fullscreen
+		document.addEventListener('fullscreenchange', function () {
+			if (!document.fullscreenElement) {
+				showModal("You exited fullscreen mode. Please return to fullscreen to continue the test.");
+				openFullscreen(); // Re-enter fullscreen
+			}
+		});
+
+		// Detect if the user switches tabs or minimizes the window
+		document.addEventListener('visibilitychange', function () {
+			if (document.hidden) {
+				showModal("You have switched tabs! Switching tabs during the test is not allowed. Please return to the test.");
+			}
+		});
+
+		// Call these functions when the page loads
+		window.onload = function () {
+			openFullscreen(); // Force fullscreen on page load
+			requestProctoringAccess(); // Start proctoring (camera and microphone)
+		};
+	</script>
 </head>
+
 <body class="contact2">
-	<h5 style="color: white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Logged In as .. {{username}}</h5>
+	<h5 style="color: rgb(154, 32, 32); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Logged In as
+		{{username}}</h5>
+
+	<!-- Warning message to be displayed to the user -->
+	<div style="color: red; font-weight: bold; text-align: center;">
+		<p>You are being proctored during this test. Your camera and microphone are being used.</p>
+	</div>
+
+	<!-- Video element to display the camera stream -->
+	<div style="text-align: center;">
+		<video id="proctoring-video" width="320" height="240" autoplay></video>
+	</div>
+
+	<!-- Notification Modal -->
+	<div id="notification-modal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">Notification</div>
+			<div class="modal-body" id="modal-body">Message goes here...</div>
+			<div class="modal-footer">
+				<button class="modal-button" onclick="closeModal()">OK</button>
+			</div>
+		</div>
+	</div>
+
 	<div class="contact1new">
-		<form style="color:white" class="contact1-form validate-form" action="/output" method="POST" enctype="multipart/form-data">
+		<form style="color:rgb(62, 41, 145)" class="contact1-form validate-form" action="/output" method="POST"
+			enctype="multipart/form-data">
 			<div class="wrap-input1 validate-input" data-validate="">
 				<h4>{{question1}}</h4>
-				<input autocomplete="off" class="input1" type="text" name="answer1" id="answer1" placeholder="Short Descriptive Answer">
+				<input autocomplete="off" class="input1" type="text" name="answer1" id="answer1"
+					placeholder="Short Descriptive Answer">
 				<span class="shadow-input1"></span>
 			</div>
 			<div class="wrap-input1 validate-input" data-validate="">
 				<h4>{{question2}}</h4>
-				<input autocomplete="off" class="input1" type="text" name="answer2" id="answer2" placeholder="Short Descriptive Answer">
+				<input autocomplete="off" class="input1" type="text" name="answer2" id="answer2"
+					placeholder="Short Descriptive Answer">
 				<span class="shadow-input1"></span>
 			</div>
 			<div class="wrap-input1 validate-input" data-validate="">
@@ -39,14 +378,11 @@
 					placeholder="Short Descriptive Answer">
 				<span class="shadow-input1"></span>
 			</div>
-			
 			<div class="container-contact1-form-btn">
-				<button class="contact1-form-btn">
-					<span>Submit<i class="" aria-hidden="true"></i></span>
-				</button>
+				<button class="contact1-form-btn">Submit</button>
 			</div>
-			<br>
 		</form>
 	</div>
 </body>
+
 </html>
